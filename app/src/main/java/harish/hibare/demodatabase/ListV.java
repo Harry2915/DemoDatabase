@@ -33,7 +33,7 @@ public class ListV extends AppCompatActivity {
         while (cursor.moveToNext()){
             items.add(new CustomClass("Rollno : "+cursor.getString(0),"Name   : "+cursor.getString(1),"Marks  : "+cursor.getString(2)));
         }
-        
+
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

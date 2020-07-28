@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,8 +16,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText editRollno, editName, editMarks;
     Button btnAdd, btnDelete, btnModify, btnView, btnViewAll, btnShowInfo;
-    SQLiteDatabase db;
-    Cursor cursor;
+    static SQLiteDatabase db;
+    static Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,18 +109,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else
                 {
-                    StringBuffer buffer = new StringBuffer();
+                   /* StringBuffer buffer = new StringBuffer();
                     while (cursor.moveToNext())
                     {
                         buffer.append("Rollno : "+cursor.getString(0)+"\n");
                         buffer.append("Name   : "+cursor.getString(1)+"\n");
                         buffer.append("Marks  : "+cursor.getString(2)+"\n");
                     }
-                    showMessage("All Recods !!",buffer.toString());
+                    showMessage("All Recods !!",buffer.toString());*/
+                    Intent intent_lstv = new Intent(getApplicationContext(),ListV.class);
+                    startActivity(intent_lstv);
                 }
                 break;
             case R.id.btnShowInfo:
-                showMessage("Student Record Application", "Developed By Chandan Prasad");
+                showMessage("Student Record Application", "Developed By Harish");
                 break;
         }
 
